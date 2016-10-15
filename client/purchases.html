@@ -1,0 +1,14 @@
+<template name="Purchases">
+  <h2>Purchases</h2>
+  <ul>
+    {{#each order in Orders}}
+      <li>
+        {{order.section}}
+        {{order.status}}
+        {{#each item in order.items}}
+          {{item.name}}
+        {{/each}}
+      </li>
+    {{/each}}
+  </ul>
+</template>

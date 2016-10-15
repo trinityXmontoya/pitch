@@ -1,0 +1,12 @@
+<template name="Orders">
+  <h2>Orders</h2>
+  {{#each order in Orders}}
+    {{order.section}}
+    {{order.status}}
+    {{#each item in order.items}}
+      {{item.name}}
+    {{/each}}
+    <button class="accept-order" data-id="{{order._id}}">Accept Order</button>
+    <button class="deliver-order" data-id="{{order._id}}">Deliver Order</button>
+  {{/each}}
+</template>
