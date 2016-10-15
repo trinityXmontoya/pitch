@@ -14,6 +14,7 @@ function showDivs(n) {
 }
 
 Template.merchandiseChoice.render = function(){
+  Session.set("cartItems", [])
 var slideIndex = 1;
 showDivs(slideIndex);
 }
@@ -50,5 +51,14 @@ Template.merchandiseChoice.events({
       section: section,
       items: [{name: "Yankee Shirt", id: "45"}],
       status: "pending"})
-    }
+    },
+   "click .add-to-cart" (evt,instance){
+     id = $(evt.target)[0].dataset.id
+     console.log(id)
+     currentCart = Session.get("currentCart")
+     Session.set("currentCart", currentCart.push(id))
+   },
+   "click .done" (evt,instance){
+     FlowRouter.go("/delivery");
+   }
 })

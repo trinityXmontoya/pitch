@@ -42,6 +42,14 @@ FlowRouter.route('/orders', {
     }
 });
 
+FlowRouter.route('/delivery', {
+    action: function() {
+        BlazeLayout.render("Layout", {
+            content: "Delivery"
+        });
+    }
+});
+
 
 
 

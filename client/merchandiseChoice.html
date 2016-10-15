@@ -4,6 +4,22 @@
     <img src="https://upload.wikimedia.org/wikipedia/en/1/1b/SeatGeek.png" alt="logo">
     </div>
 
+		<p class="type-of-merchandise"> Apparel </p>
+		<section class="beer">
+
+			<div class="accordion">
+				<ul>
+					{{#each merch in merchItems}}
+						<li>
+							<div class="caption"><a href="#" class="add-to-cart" data-id="{{merch.pid}}">Add to cart</a></div>
+							<a href="#">
+								<img src='{{merch.img}}'/></a>
+						</li>
+					{{/each}}
+				</ul>
+			</div>
+	</section>
+
 <p class="type-of-merchandise"> Beer </p>
   	<section class="beer">
 
@@ -20,23 +36,9 @@
 			</div>
 	</section>
 
-  			<p class="type-of-merchandise"> Food </p>
-				<section class="beer">
 
-					<div class="accordion">
-						<ul>
-							{{#each merch in merchItems}}
-								<li>
-									<div class="caption"><a href="#">Add to cart</a></div>
-									<a href="#">
-										<img src='{{merch.img}}'/></a>
-								</li>
-							{{/each}}
-						</ul>
-					</div>
-			</section>
 
-<p class="type-of-merchandise"> Jerseys </p>
+<p class="type-of-merchandise"> Food </p>
 
 		    <section class="clothes">
 		     <div class="accordion">
