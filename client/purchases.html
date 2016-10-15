@@ -3,7 +3,9 @@
   <ul>
     {{#each order in Orders}}
       <li>
-        {{order.section}}
+        {{order.section.name}}
+        {{order.section.row}}
+        {{order.section.seat}}
         {{order.status}}
         {{#each item in order.items}}
           {{item.name}}
