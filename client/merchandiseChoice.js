@@ -30,6 +30,9 @@ Template.merchandiseChoice.helpers({
   },
   merchItems: function(){
     return StadiumItems.find({type: "merch"}, {limit: 10})
+  },
+  foodItems: function(){
+    return []
   }
 })
 
@@ -45,20 +48,21 @@ var findSectionlatLng = function(name, rowId){
 Template.merchandiseChoice.events({
   "click button.place-order" (evt,instance){
     section = Session.get("currentSection")
-    section.latLng = findSectionlatLng("field-level-110", 7)
+    section.latLng = findSectionlatLng(section.name, section.row)
+    itemIds = Session.get("currentCart")
+    items = Items.find({_id: {$in: itemIds}})
     Orders.insert({
       name: "Jim",
       section: section,
-      items: [{name: "Yankee Shirt", id: "45"}],
+      items: items,
       status: "pending"})
     },
    "click .add-to-cart" (evt,instance){
      id = $(evt.target)[0].dataset.id
-     console.log(id)
      currentCart = Session.get("currentCart")
      Session.set("currentCart", currentCart.push(id))
    },
    "click .done" (evt,instance){
-     FlowRouter.go("/delivery");
+     FlowRouter.go("/");
    }
 })

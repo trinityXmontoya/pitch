@@ -14,11 +14,27 @@ Template.Orders.events({
 
   "click button.deliver-order" (evt,instance){
     id = evt.currentTarget.dataset.id
+    var markerA = _.find(Window.markers, function(a){
+      return a.id == id
+    })
+    var z = markerA.marker
+    var coords = [z.point.x, z.point.y]
+    // console.log(markerA)
+    map.removeLayer(markerA.marker)
+
+    var circle = L.circle(coords, {
+      color: "blue",
+      radius: 5
+    }).addTo(Window.map)
+
+
     Orders.update(id, {$set: {status: "delivered"}})
   }
 })
 
-var Window = {}
+var Window = {
+  markers: []
+}
 
 var loadMap = function(){
   L.CRS.SeatGeek = L.extend({}, L.CRS.Simple, {
@@ -28,7 +44,7 @@ var loadMap = function(){
   var map = L.map("map", {
     crs: L.CRS.SeatGeek,
     center: [500,500],
-    zoom: 1
+    zoom: 2
   })
   Window.map = map
 
@@ -40,8 +56,12 @@ var addOrderMarkers = function(){
   orders.map(function(order){
     var section = order.section
     var coords = Window.map.project(section.latLng)
+    var color = "orange"
+    if (order.status == "accepted") {
+      color = "#419C05"
+    }
     var circle = L.circle([coords.x, coords.y], {
-      color: "red",
+      color: color,
       radius: 5
     }).addTo(Window.map)
     popup = "<div>" +
@@ -51,6 +71,8 @@ var addOrderMarkers = function(){
             "Seat: " + order.section.seat +
             "</div>"
     circle.bindPopup(popup)
+    console.log(order)
+    Window.markers.push({id: order._id, marker: circle})
   })
 }
 
