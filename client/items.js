@@ -20,10 +20,11 @@ var findSectionlatLng = function(name, rowId){
 
 Template.Items.events({
   "click button.place-order" (evt,instance){
-    latLng = findSectionlatLng("field-level-110", 7)
+    section = Session.get("currentSection")
+    section.latLng = findSectionlatLng("field-level-110", 7)
     Orders.insert({
       name: "Jim",
-      section: {name: "field-level-110", row: 7, seat: 45, latLng: latLng},
+      section: section,
       items: [{name: "Yankee Shirt", id: "45"}],
       status: "pending"})
     }

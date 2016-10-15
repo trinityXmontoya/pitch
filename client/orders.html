@@ -1,15 +1,23 @@
 <template name="Orders">
   <!-- <script src="https://cdn.rawgit.com/MrMufflon/Leaflet.Coordinates/master/dist/Leaflet.Coordinates-0.1.5.min.js"></script> -->
   <h2>Orders</h2>
-  {{#each order in Orders}}
-    {{order.section}}
-    {{order.status}}
-    {{#each item in order.items}}
-      {{item.name}}
-    {{/each}}
-    <button class="accept-order" data-id="{{order._id}}">Accept Order</button>
-    <button class="deliver-order" data-id="{{order._id}}">Deliver Order</button>
-  {{/each}}
 
    <div id="map"></div>
+
+   <div class="orders">
+     <ul class="list-group">
+       {{#each order in Orders}}
+       <li class="list-group-item">
+         {{order.section}}
+         {{order.status}}
+         {{#each item in order.items}}
+           {{item.name}}
+         {{/each}}
+         <button class="accept-order" data-id="{{order._id}}" style="background-color:#419C05">Accept Order</button>
+         <button class="deliver-order" data-id="{{order._id}}" style="background-color:DC2323">Deliver Order</button>
+       </li>
+
+       {{/each}}
+     </ul>
+   </div>
 </template>
