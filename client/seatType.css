@@ -1,0 +1,36 @@
+
+.seatChoice {
+	height: 100%;
+}
+
+.leftTwo{
+  display : flex;
+  justify-content : center;
+  align-items : center;
+  background-color:#40AF06;
+  /*background-color: #1673E6 ;*/
+  height : 100%;
+  width: 100%;
+  color : #FFF;
+
+}
+.rightTwo{
+  display : flex;
+  justify-content : center;
+  align-items : center;
+   background-color: #419C05;
+  /*background-color: #082744;*/
+	color: #fff;
+  height : 100%;
+  width: 100%;
+}
+
+.seatchoiceTwo {
+	font-size: 28px;
+  text-align: center;
+}
+
+.logo-containerTwo{
+  background-color: black;
+  opacity: .85;
+}

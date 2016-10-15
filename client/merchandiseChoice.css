@@ -1,0 +1,27 @@
+.beer{
+  display : flex;
+  justify-content : center;
+  align-items : center;
+  background-color:#E86B18;
+  color : #fff;
+  height:50%;
+}
+
+.food{
+  display : flex;
+  justify-content : center;
+  align-items : center;
+  background-color: #F23535;
+  color : #FFF;
+  height:50%;
+}
+
+.clothes{
+  display : flex;
+  justify-content : center;
+  align-items : center;
+  background-color: #082744;
+  color : #FFF;
+  height:50%;
+}
+

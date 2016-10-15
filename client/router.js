@@ -5,7 +5,7 @@ Tracker.autorun(function() {
 FlowRouter.route('/', {
 	action: function() {
 		BlazeLayout.render("Layout", {
-			content: "Home"
+			content: "LandingPage"
 		});
 	}
 });
@@ -17,3 +17,23 @@ FlowRouter.route('/items', {
 		});
 	}
 });
+
+FlowRouter.route('/seatType', {
+	action: function() {
+		BlazeLayout.render("Layout", {
+			content: "seatType"
+		});
+	}
+});
+
+FlowRouter.route('/choices', {
+	action: function() {
+		BlazeLayout.render("Layout", {
+			content: "merchandiseChoice"
+		});
+	}
+});
+
+
+
+BlazeLayout.setRoot('body');
