@@ -6,4 +6,5 @@ Meteor.startup(() => {
     console.log("seeding")
       Items.seed()
   }
+  Items.locations()
 });
