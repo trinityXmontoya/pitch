@@ -1,14 +1,39 @@
 <template name="Items">
-  items
+  <h2>Items</h2>
   <ul>
-    {{#each item in Items}}
+    {{#each item in items}}
     <li>
       {{item.id}}
       {{item.name}}
       {{item.price}}
       {{item.link}}
-      {{item.img}}
+      <img src="{{item.img}}" alt="">
     </li>
     {{/each}}
+    <li class="beer">
+      1234
+      Stella Artois
+      $20
+      no-link
+      <!-- <img src="https://d2xcq73ooavf75.cloudfront.net/ci_4868.jpg" alt=""> -->
+      <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="">
+    </li>
+    <!-- <li class="food">
+      4567
+      Nathan's Frank
+      $7
+      no-link
+      <img src="http://www.spoofee.com/images/dealofday/original/894048.jpg" alt="">
+    </li> -->
   </ul>
+
+  <button class="place-order">
+    place order
+  </button>
+
+
+  {{>Purchases}}
+
+  {{>Orders}}
+
 </template>
