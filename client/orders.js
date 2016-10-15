@@ -1,4 +1,4 @@
-Orders = new Mongo.Collection("Pitch.Orders1")
+Orders = new Mongo.Collection("Pitch.Orders2")
 
 Template.Orders.helpers({
   Orders: function(){
@@ -20,12 +20,12 @@ Template.Orders.events({
     var z = markerA.marker
     var coords = [z.point.x, z.point.y]
     // console.log(markerA)
-    map.removeLayer(markerA.marker)
-
-    var circle = L.circle(coords, {
-      color: "blue",
-      radius: 5
-    }).addTo(Window.map)
+    // map.removeLayer(markerA.marker)
+    //
+    // var circle = L.circle(coords, {
+    //   color: "blue",
+    //   radius: 5
+    // }).addTo(Window.map)
 
 
     Orders.update(id, {$set: {status: "delivered"}})

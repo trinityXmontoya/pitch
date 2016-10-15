@@ -22,7 +22,7 @@ showDivs(slideIndex);
 StadiumItems = new Mongo.Collection("Pitch.Items0");
 Sections = new Mongo.Collection("Pitch.Sections0");
 
-// Orders = new Mongo.Collection("Pitch.Orders1")
+// Orders = new Mongo.Collection("Pitch.Orders2")
 
 Template.merchandiseChoice.helpers({
   beerItems: function(){
@@ -49,8 +49,8 @@ Template.merchandiseChoice.events({
   "click button.place-order" (evt,instance){
     section = Session.get("currentSection")
     section.latLng = findSectionlatLng(section.name, section.row)
-    itemIds = Session.get("currentCart")
-    items = Items.find({_id: {$in: itemIds}})
+    itemIds = Session.get("cartItems")
+    items = StadiumItems.find({_id: {$in: itemIds}})
     Orders.insert({
       name: "Jim",
       section: section,
@@ -59,10 +59,27 @@ Template.merchandiseChoice.events({
     },
    "click .add-to-cart" (evt,instance){
      id = $(evt.target)[0].dataset.id
-     currentCart = Session.get("currentCart")
-     Session.set("currentCart", currentCart.push(id))
+     cartItems = Session.get("cartItems") || []
+     cartItems.push(id)
+     Session.set("cartItems", cartItems)
    },
+
+  //  Orders.insert({
+  //    name: "Jim",
+  //    section: {name: "field-level-112", row: "4", seat: 5, latLng:[ 670.268, 504.7 ] },
+  //    items: [{name: 4}, {name: 2}],
+  //    status: "pending"
+  //  })
    "click .done" (evt,instance){
+     section = Session.get("currentSection")
+     section.latLng = findSectionlatLng(section.name, section.row)
+     itemIds = Session.get("cartItems")
+     items = StadiumItems.find({_id: {$in: itemIds}})
+     Orders.insert({
+       name: "Jim",
+       section: section,
+       items: items,
+       status: "pending"})
      FlowRouter.go("/");
    }
 })
