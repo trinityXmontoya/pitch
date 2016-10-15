@@ -17,3 +17,11 @@ FlowRouter.route('/items', {
 		});
 	}
 });
+
+FlowRouter.route('/orders', {
+	action: function() {
+		BlazeLayout.render("Layout", {
+			content: "Orders"
+		});
+	}
+});
