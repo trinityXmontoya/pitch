@@ -13,7 +13,7 @@ FlowRouter.route('/', {
 FlowRouter.route('/items', {
 	action: function() {
 		BlazeLayout.render("Layout", {
-			content: "items"
+			content: "Items"
 		});
 	}
 });
