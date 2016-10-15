@@ -1,0 +1,14 @@
+<template name="Items">
+  items
+  <ul>
+    {{#each item in Items}}
+    <li>
+      {{item.id}}
+      {{item.name}}
+      {{item.price}}
+      {{item.link}}
+      {{item.img}}
+    </li>
+    {{/each}}
+  </ul>
+</template>
