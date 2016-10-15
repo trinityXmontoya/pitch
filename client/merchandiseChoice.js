@@ -64,9 +64,11 @@ Template.merchandiseChoice.events({
      Session.set("cartItems", cartItems)
    },
 
-  //  Orders.insert({
+ // {x: 726.7679999999999, y: 965.18592}
+
+  //  db.Pitch.Orders2.insert({
   //    name: "Jim",
-  //    section: {name: "field-level-112", row: "4", seat: 5, latLng:[ 670.268, 504.7 ] },
+  //    section: {name: "field-level-112", row: "4", seat: 5, latLng:[ 726.7679999999999,965.18592 ] },
   //    items: [{name: 4}, {name: 2}],
   //    status: "pending"
   //  })
