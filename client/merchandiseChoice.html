@@ -3,33 +3,84 @@
 		<div class="logo-containerTwo">
     <img src="https://upload.wikimedia.org/wikipedia/en/1/1b/SeatGeek.png" alt="logo">
     </div>
-  			<section class="beer">
-  			<h2 class="title-product">Beer</h2>
-  			<div>
-		      <p>
-		        About
-		      </p>
-		    </div>
-  			</section>
 
-		    <section class="food">
-		    <h2 class="title-product">Food</h2>
-		    <div>
-		      <p>
-		        About
-		      </p>
-		    </div>
-		  </section>
+<p class="type-of-merchandise"> Beer </p>
+  	<section class="beer">
+
+			<div class="accordion">
+				<ul>
+					{{#each beer in beerItems}}
+						<li>
+							<div class="caption"><a href="#">Add to cart</a></div>
+							<a href="#">
+								<img src='{{beer.img}}'/></a>
+						</li>
+					{{/each}}
+				</ul>
+			</div>
+	</section>
+
+  			<p class="type-of-merchandise"> Food </p>
+				<section class="beer">
+
+					<div class="accordion">
+						<ul>
+							{{#each merch in merchItems}}
+								<li>
+									<div class="caption"><a href="#">Add to cart</a></div>
+									<a href="#">
+										<img src='{{merch.img}}'/></a>
+								</li>
+							{{/each}}
+						</ul>
+					</div>
+			</section>
+
+<p class="type-of-merchandise"> Jerseys </p>
 
 		    <section class="clothes">
-		    <h2 class="title-product">Jerseys</h2>
-		    <div>
-		      <p>
-		        About
-		      </p>
-		    </div>
+		     <div class="accordion">
+				<ul>
+					<li>
+						<div class="caption"><a href="#">Add to cart</a></div>
+						<a href="#">
+			        <img src='https://d2xcq73ooavf75.cloudfront.net/ci_4868.jpg'/></a>
+					</li>
+
+			    <li>
+						<div class="caption"><a href="#">Add to cart</a></div>
+						<a href="#">
+			        <img src='https://d2xcq73ooavf75.cloudfront.net/ci_4868.jpg'/></a>
+					</li>
+
+			    <li>
+						<div class="caption"><a href="#">Add to cart</a></div>
+						<a href="#">
+			        <img src='https://d2xcq73ooavf75.cloudfront.net/ci_4868.jpg'/></a>
+					</li>
+
+			    <li>
+						<div class="caption"><a href="#">Add to cart</a></div>
+						<a href="#">
+			        <img src='https://d2xcq73ooavf75.cloudfront.net/ci_4868.jpg'/></a>
+					</li>
+
+			    <li>
+						<div class="caption"><a href="#">Add to cart</a></div>
+						<a href="#">
+			        <img src='https://d2xcq73ooavf75.cloudfront.net/ci_4868.jpg'/></a>
+					</li>
+
+			    <li>
+						<div class="caption"><a href="#">Add to cart</a></div>
+						<a href="#">
+			        <img src='https://d2xcq73ooavf75.cloudfront.net/ci_4868.jpg'/></a>
+					</li>
+				</ul>
+			</div>
 		  </section>
 
 </section>
+
 
 </template>
