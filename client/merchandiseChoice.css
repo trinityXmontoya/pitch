@@ -2,7 +2,7 @@
   display : flex;
   justify-content : center;
   align-items : center;
-  background-color:#E86B18;
+  background-color: #E86B18;
   color : #fff;
   height:50%;
 }
@@ -25,6 +25,14 @@
   height:50%;
 }
 
+.checkout {
+      background-color: black;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    font-size: 30px;
+    width: 100%;
+}
 .clothes{
   display : flex;
   justify-content : center;
