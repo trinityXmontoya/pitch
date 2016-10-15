@@ -1,11 +1,11 @@
-StadiumItems = new Mongo.Collection("Pitch.Items");
+StadiumItems = new Mongo.Collection("Pitch.Items0");
 Sections = new Mongo.Collection("Pitch.Sections0");
 
 // Orders = new Mongo.Collection("Pitch.Orders1")
 
 Template.Items.helpers({
   items: function(){
-    return StadiumItems.find({})[0]
+    return StadiumItems.find({})
   }
 })
 
@@ -16,15 +16,15 @@ var findSectionlatLng = function(name, rowId){
   })
   return res.latLng
 }
-// Section Main Level 232B row 9 seat 4
+
 
 Template.Items.events({
   "click button.place-order" (evt,instance){
-    latLng = findSectionlatLng("main-level-232-b", 2)
+    latLng = findSectionlatLng("field-level-110", 7)
     Orders.insert({
       name: "Jim",
-      section: {name: "main-level-232-b", row: 2, seat: 45, latLng: latLng},
+      section: {name: "field-level-110", row: 7, seat: 45, latLng: latLng},
       items: [{name: "Yankee Shirt", id: "45"}],
       status: "pending"})
-  }
+    }
 })

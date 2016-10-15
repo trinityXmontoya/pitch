@@ -4,7 +4,8 @@ Meteor.startup(() => {
   // code to run on server at startup
   if (StadiumItems.find().count() == 0){
     console.log("seeding items")
-      Items.seed()
+      Items.seedMerch()
+      Items.seedBeer()
   }
   if (Sections.find().count() == 0){
     console.log("seeding sections")

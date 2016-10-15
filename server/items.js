@@ -1,9 +1,9 @@
 import cheerio from 'cheerio'
 
-StadiumItems = new Mongo.Collection("Pitch.Items");
+StadiumItems = new Mongo.Collection("Pitch.Items0");
 
 Items = {
-  seed: function(){
+  seedMerch: function(){
     var url = "http://www.mlbshop.com/New_York_Yankees_Women"
     var html = HTTP.get(url).content
     $ = cheerio.load(html, {normalizeWhitespace: true})
@@ -15,10 +15,29 @@ Items = {
       img = p.find("img").attr("src")
       price = p.find(".price").text().trim()
       link = p.find(".browseProductLink").attr("href")
-      return {pid: id, name: name, img: img, price: price, link: link}
+      return {pid: id, name: name, img: img, price: price, link: link, type: "merch"}
     })
     _.each(results, function(result){
-      StadiumItems.insert(result)
+      StadiumItems.insert(result)[0]
+    })
+  },
+  seedBeer: function(){
+    var key = "e03a30d18c70b8b5422712ff6f3ce7dc"
+    var abv = 8
+    var url = "http://api.brewerydb.com/v2/beers?" +
+              "abv=" + abv + " &" +
+              "key=" + key
+    var beers = HTTP.get(url).data["data"]
+    _.each(beers, function(beer){
+      labels = beer["labels"]
+      if (labels){
+        StadiumItems.insert({
+          type: "beer",
+          pid: beer.id,
+          name: beer.name,
+          img: labels["large"]
+        })
+      }
     })
   },
   locations: function(){

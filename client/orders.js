@@ -57,10 +57,14 @@ var addOrderMarkers = function(){
 Template.Orders.onRendered(function(){
   loadMap()
   addOrderMarkers()
-
 })
 
 // Template.Orders.onCreated(function () {
+//   const orders = Meteor.subscribe("pending-orders")
+//   if (orders.isReady()){
+//     console.log("imreading")
+//   }
+
 //   // var self = this;
 //   //
 //   // self.autorun(function () {
